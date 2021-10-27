@@ -15,14 +15,14 @@ server.get('/ping', (req: Request, res: Response) => res.json({ pong: true }));
 server.use(apiRoutes);
 
 server.use((req: Request, res: Response) => {
-    res.status(404);
-    res.json({ error: 'Endpoint não encontrado.' });
+  res.status(404);
+  res.json({ error: 'Endpoint não encontrado.' });
 });
 
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-    res.status(400); // Bad Request
-    console.log(err);
-    res.json({ error: 'Ocorreu algum erro.' });
+  res.status(400); // Bad Request
+  console.log(err);
+  res.json({ error: 'Ocorreu algum erro.' });
 }
 server.use(errorHandler);
 
